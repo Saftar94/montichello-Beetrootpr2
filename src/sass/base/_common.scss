@@ -1,0 +1,35 @@
+@use './variables' as *;
+
+body {
+    font-family: $main-font;
+    line-height: 1.5;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    @media screen and (min-width: 320px) {
+      width: 320px;
+    }
+  
+    @media screen and (min-width:  768px) {
+      width: 768px;
+      padding-left: 75px;
+      padding-right: 75px;
+    }
+  
+    @media screen and (min-width: 1024px) {
+      width:1024px;
+      padding-left: 71px;
+      padding-right: 71px;
+    }
+    @media screen and (min-width: 1328px) {
+      width:1328px;
+    }
+  }
+
+.animate-item {
+    transition: all 0.3s ease;
+} 

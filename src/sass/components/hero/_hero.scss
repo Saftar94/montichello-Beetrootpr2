@@ -1,0 +1,143 @@
+.main {
+    background: linear-gradient(to right, #55B7FF, #7E5AFF), url('/src/images/heromImg.jpg') no-repeat center center/cover;
+    background-blend-mode: multiply;
+    min-height: 100vh;
+    position: relative;
+    overflow: auto;
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.hero__title {
+    font-size: 64px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero__subtitle {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.hero__scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+.hero__scroll svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+    pointer-events: auto;
+}
+
+.hero__dots {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero__dot {
+    width: 12px;
+    height: 12px;
+    margin: 8px 0;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.hero__dot.active {
+    opacity: 1;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero__title {
+        font-size: 48px;
+    }
+
+    .hero__subtitle {
+        font-size: 16px;
+    }
+
+    .hero__dots {
+        right: 10px;
+    }
+
+    .hero__dot {
+        width: 10px;
+        height: 10px;
+        margin: 6px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: 36px;
+    }
+
+    .hero__subtitle {
+        font-size: 14px;
+    }
+
+    .hero__dots {
+        right: 8px;
+    }
+
+    .hero__dot {
+        width: 8px;
+        height: 8px;
+        margin: 4px 0;
+    }
+}

@@ -1,0 +1,263 @@
+.header {
+    padding: 15px 0; 
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    
+
+    &-container {
+        padding: 0 15px;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    
+    &__img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+}
+
+.nav-menu {
+    display: none;
+
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    &__item {
+        display: flex;
+        align-items: end;
+        justify-content: end;
+        width: 35px;
+        height: 35px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #fff;
+
+            .social-links__icon {
+                fill: #4568dc;
+            }
+        }
+    }
+
+    &__icon {
+        width: 25px;
+        height: 25px;
+        fill: #fff;
+        transition: fill 0.3s ease;
+    }
+}
+
+.burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.burger-svg{
+    height: 30px;
+    fill: white;
+    width: 30px;
+}
+
+
+// /* Modal Styling */
+.nav-modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #55B7FF, #7E5AFF);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.nav-modal.active {
+    display: block;
+}
+
+
+
+.nav-modal {
+    text-align: center;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 10px 0;
+    display: block;
+}
+
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .header {
+        padding: 18px 0;
+        
+        &-container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+    }
+
+    .burger {
+        display: none; 
+    }
+
+    .nav-modal {
+        display: none; 
+    }
+
+    .logo {
+        width: 180px;
+    }
+
+    .nav-menu {
+        display: flex;
+        gap: 15px;
+        width: 100%; // На всю ширину в мобильной версии
+        justify-content: center;
+        margin-top: 15px;
+    
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            position: relative;
+            padding: 5px 0;
+            padding-left: 12px;
+            transition: all 0.3s ease;
+    
+            &::before {
+                content: '•';
+                position: absolute;
+                left: 0;
+                color: transparent;
+                transition: color 0.3s ease;
+            }
+    
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 12px;
+                width: calc(100% - 12px);
+                height: 2px;
+                background-color: #fff;
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+    
+            &:not(.active):hover {
+                &::before {
+                    color: #fff;
+                }
+                &::after {
+                    transform: scaleX(1);
+                }
+            }
+    
+            &.active,
+            &.hovered {
+                &::before {
+                    color: #fff;
+                }
+                &::after {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+    .social-links {
+        gap: 15px;
+
+        &__item {
+            width: 38px;
+            height: 38px;
+        }
+
+        &__icon {
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .header {
+        padding: 20px 0;
+        
+        &-container {
+            max-width: 1200px;
+            flex-wrap: nowrap;
+        }
+    }
+
+    .logo {
+        width: 241px;
+    }
+
+    .nav-menu {
+        width: auto;
+        gap: 40px;
+        margin: 0 20px;
+        
+        a {
+            font-size: 14px;
+            padding-left: 15px;
+
+            &::after {
+                left: 15px;
+                width: calc(100% - 15px);
+            }
+        }
+    }
+
+    .social-links {
+        gap: 20px;
+
+        &__item {
+            width: 40px;
+            height: 40px;
+        }
+
+        &__icon {
+            width: 25px;
+            height: 25px;
+        }
+    }
+}

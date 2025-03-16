@@ -1,0 +1,269 @@
+
+.latest-news {
+    background: linear-gradient(237.1deg, #24CCFA 11.16%, #3C7FD4 89.18%);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        position: relative; 
+    }
+
+    &__title {
+        text-align: center;
+        color: #fff;
+        font-size: 44px;
+        font-weight: 700;
+        margin-bottom: 90px;
+        position: relative;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background-color: #fff;
+        }
+    }
+
+    &__slider {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 40px;
+        overflow: hidden; // Для скрытия части карточек
+        padding: 0 20px;
+    }
+}
+
+.news-cards {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s ease;
+    width: auto; // Вместо 100%
+    overflow: visible;
+}
+.latest-news__slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    overflow: hidden; // Добавляем overflow скрытие на родителя
+    padding: 0 20px; // Добавляем отступ для видимости крайних карточек
+}
+
+.news-card {
+    flex: 0 0 370px;
+    background: #fff;
+    min-height: 514px;
+    display: flex;
+    flex-direction: column;
+    
+    &__image-wrapper {
+        height: 240px;
+        overflow: hidden;
+    }
+    
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+        
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    
+    &__content {
+        padding: 30px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__title {
+        font-size: 22px;
+        color: #2C4058;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+    
+    &__description {
+        font-size: 18px;
+        color: #4B5562;
+        line-height: 1.5;
+        margin-bottom: 40px;
+    }
+    
+    &__author {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: auto;
+    }
+    
+    &__author-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    &__author-info {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__author-name {
+        font-size: 18px;
+        color: #2C4058;
+        font-weight: 700;
+    }
+    
+    &__date {
+        font-size: 14px;
+        color: #55B7FF;
+    }
+}
+
+.slider-button {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    z-index: 100; // Увеличиваем z-index чтобы кнопки были поверх контента
+    top: 55%;
+    transform: translateY(-50%);
+    
+    &:hover {
+        background: rgba(255, 255, 255, 0.8);
+    }
+    
+    &__icon {
+        width: 20px;
+        height: 20px;
+        fill: #fff;
+    }
+    
+    &--prev {
+        left: -60px;
+        z-index: 10;
+    }
+    
+    &--next {
+        right: -60px;
+    }
+          
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+    
+    &.active {
+        background: #fff;
+        transform: scale(1.2);
+    }
+    
+    &:hover {
+        background: rgba(255, 255, 255, 0.8);
+    }
+}
+
+// Медиа-запросы для адаптивности
+@media (max-width: 1200px) {
+    .latest-news {
+        &__container {
+            max-width: 900px;
+        }
+    }
+
+    .news-card {
+        flex: 0 0 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .latest-news {
+        padding: 60px 0;
+        
+        &__title {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+    }
+
+    .news-card {
+        flex: 0 0 100%;
+        
+        &__title {
+            font-size: 20px;
+        }
+        
+        &__description {
+            font-size: 16px;
+        }
+    }
+
+    .slider-button {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .latest-news {
+        &__title {
+            font-size: 28px;
+        }
+    }
+
+    .news-card {
+        min-height: auto;
+        
+        &__content {
+            padding: 20px;
+        }
+        
+        &__author-image {
+            width: 40px;
+            height: 40px;
+        }
+        
+        &__author-name {
+            font-size: 16px;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+// Base
+@use '../sass/base/reset';
+@use '../sass/base/common';
+// Components
+@use '../sass/components/header/header';
+@use '../sass/components/hero/hero';
+@use '../sass/components/whatwedo/whatwedo';
+@use '../sass/components/latestnews/latestnews';
+@use '../sass/components/gallery/gallery';
+@use '../sass/components/getInTouch/getInTouch';
+@use '../sass/components/footer/footer';
